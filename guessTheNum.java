@@ -4,9 +4,9 @@ import java.util.SortedMap;
 public class guessTheNum {
     public static void main(String[] args) {
 
-        // initialize the min and max of a dice
+        // initialize the min and max
         int min = 1;
-        int max = 6;
+        int max = 100;
         // initialize random number generator with Math.random() method
         int random_num = (int)Math.floor(Math.random()*(max-min+1)+min);
         // initialize lives
@@ -25,7 +25,16 @@ public class guessTheNum {
                 System.out.println("Well Done!!");
                 points++;
                 System.out.println("your score : "+points);
-            }else{
+            } else{
+                if(guess_Num>random_num )
+                    System.out.println("Hint: Guess a bit Low.");
+
+                if(guess_Num<random_num)
+                    System.out.println("Hint: Guess a bit High.");
+
+                if(guess_Num>max || guess_Num<min)
+                    System.out.println("Guess within the range of 1 - 100 ");
+
                 System.out.println("Bummer Try Again!!");
                 lives-=1;
                 System.out.println("you got "+lives+" chances.");
